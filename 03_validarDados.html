@@ -10,12 +10,64 @@
     Estado Civil: 's', 'c', 'v', 'd';
     */
 
-    //ENTRADA
+ // ENTRADA
 
+    let nome;
+    let idade;
+    let salario;
+    let sexo;
+    let estadoCivil;
 
-    //PROCESSAMENTO
+   
+    do {
+        nome = prompt("Insira um nome com mais de 3 caracteres):");
+        if (nome === null) break;
+        if (nome.length <= 3) {
+            alert("Nome inválido.");
+        }
+    } while (nome === null || nome.length <= 3);
 
+    if (nome === null) {
+        alert("Cadastro cancelado.");
+    } else {
 
-    //SAÍDA
+     
+        do {
+            idade = Number(prompt("Insira uma idade (0 a 150):"));
+            if (isNaN(idade) || idade < 0 || idade > 150) {
+                alert("Idade inválida.");
+            }
+        } while (isNaN(idade) || idade < 0 || idade > 150);
 
+  
+        do {
+            salario = Number(prompt("Insira um salário maior que 0):"));
+            if (isNaN(salario) || salario <= 0) {
+                alert("Salário inválido.");
+            }
+        } while (isNaN(salario) || salario <= 0);
+
+   
+        do {
+            sexo = prompt("Qual o sexo ('f' ou 'm'):").toLowerCase();
+            if (sexo !== 'f' && sexo !== 'm') {
+                alert("Sexo inválido.");
+            }
+        } while (sexo !== 'f' && sexo !== 'm');
+
+     
+        const validos = ['s', 'c', 'v', 'd'];
+        do {
+            estadoCivil = prompt("Estado Civil ('s', 'c', 'v', 'd'):").toLowerCase();
+            if (!validos.includes(estadoCivil)) {
+                alert("Estado Civil inválido.");
+            }
+        } while (!validos.includes(estadoCivil));
+
+ 
+        alert(`Dados Validados:\nNome: ${nome}\nIdade: ${idade}\nSalário: R$ ${salario.toFixed(2)}\nSexo: ${sexo.toUpperCase()}\nEstado Civil: ${estadoCivil.toUpperCase()}`);
+    }
+
+    // PROCESSAMENTO 
+    // SAÍDA
 </script>
